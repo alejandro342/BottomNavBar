@@ -1,6 +1,7 @@
 package com.alejandro_dev_links.bottomnavbar.presentation.navigation.screen.user
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
@@ -19,7 +20,7 @@ sealed class UserScreen(val route: String, val title: String, val icon: ImageVec
     object Favorites : UserScreen(
         route = "user/favorites",
         title = "Favorito",
-        icon = Icons.Outlined.FavoriteBorder
+        icon = Icons.Default.Favorite
     )
 
     object Profile : UserScreen(
