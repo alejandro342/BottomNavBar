@@ -33,7 +33,7 @@ fun RowScope.UserBottomBarItem(
     navController: NavHostController
 ) {
     val selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
-    val background = if (selected) PrimaryBlue.copy(alpha = 0.6f) else Color.Transparent
+    val background = if (selected) PrimaryBlue.copy(alpha = 0.8f) else Color.Transparent
     val contentColor = if (selected) Color.White else Color.Black
     Box(modifier = Modifier
         .height(40.dp)
