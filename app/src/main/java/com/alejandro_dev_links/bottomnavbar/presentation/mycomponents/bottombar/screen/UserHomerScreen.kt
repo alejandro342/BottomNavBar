@@ -1,22 +1,44 @@
 package com.alejandro_dev_links.bottomnavbar.presentation.mycomponents.bottombar.screen
 
 import android.annotation.SuppressLint
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.FloatingActionButtonDefaults
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.alejandro_dev_links.bottomnavbar.presentation.mycomponents.bottombar.components.UserBottomBar
 import com.alejandro_dev_links.bottomnavbar.presentation.navigation.graph.user.UserNavGraph
+import com.alejandro_dev_links.bottomnavbar.ui.theme.PrimaryBlue
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun UserHomerScreen(navController: NavHostController = rememberNavController()) {
     Scaffold(
         bottomBar = {
             UserBottomBar(navController = navController)
-        }) {
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                modifier = Modifier,
+                contentColor = Color.White,
+                backgroundColor = PrimaryBlue,
+                elevation = FloatingActionButtonDefaults.elevation(2.dp, 3.dp),
+                shape = RoundedCornerShape(50),
+                onClick = { }) {
+                Icon(imageVector = Icons.Default.Favorite, contentDescription = "")
+            }
+        },
+        isFloatingActionButtonDocked = true
+    ) {
         UserNavGraph(navController = navController)
     }
 }

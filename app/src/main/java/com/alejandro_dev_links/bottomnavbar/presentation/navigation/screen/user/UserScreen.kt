@@ -18,7 +18,7 @@ sealed class UserScreen(val route: String, val title: String, val icon: ImageVec
 
     object Favorites : UserScreen(
         route = "user/favorites",
-        title = "Favorites",
+        title = "Favorito",
         icon = Icons.Outlined.FavoriteBorder
     )
 
@@ -30,7 +30,7 @@ sealed class UserScreen(val route: String, val title: String, val icon: ImageVec
 
     object Settings : UserScreen(
         route = "user/settings",
-        title = "Settings",
+        title = "Ajustes",
         icon = Icons.Default.Settings
     )
 }
