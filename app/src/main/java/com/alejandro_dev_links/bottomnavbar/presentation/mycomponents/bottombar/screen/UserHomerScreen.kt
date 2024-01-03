@@ -2,6 +2,7 @@ package com.alejandro_dev_links.bottomnavbar.presentation.mycomponents.bottombar
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FloatingActionButtonDefaults
 import androidx.compose.material.Scaffold
@@ -32,12 +33,12 @@ fun UserHomerScreen(navController: NavHostController = rememberNavController()) 
                 contentColor = Color.White,
                 backgroundColor = PrimaryBlue,
                 elevation = FloatingActionButtonDefaults.elevation(2.dp, 3.dp),
-                shape = RoundedCornerShape(50),
                 onClick = { }) {
                 Icon(imageVector = Icons.Default.Favorite, contentDescription = "")
             }
         },
-        isFloatingActionButtonDocked = true
+        isFloatingActionButtonDocked = true,
+        floatingActionButtonPosition = FabPosition.Center
     ) {
         UserNavGraph(navController = navController)
     }

@@ -1,6 +1,8 @@
 package com.alejandro_dev_links.bottomnavbar.presentation.mycomponents.bottombar.components
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.BottomNavigation
@@ -22,16 +24,14 @@ fun UserBottomBar(navController: NavHostController) {
         UserScreen.Settings
     )
     BottomAppBar(
-        cutoutShape = MaterialTheme.shapes.small.copy(
-            CornerSize(percent = 50)
-        )
+        cutoutShape = CircleShape
     ) {
 
         val navBackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackEntry?.destination
         val bottomBarDestination = screens.any { it.route == currentDestination?.route }
         if (bottomBarDestination) {
-            BottomNavigation(modifier = Modifier.padding(0.dp, 0.dp, 60.dp, 0.dp)) {
+            BottomNavigation(modifier = Modifier) {
                 screens.forEach { screen ->
                     UserBottomBarItem(
                         screen = screen,
