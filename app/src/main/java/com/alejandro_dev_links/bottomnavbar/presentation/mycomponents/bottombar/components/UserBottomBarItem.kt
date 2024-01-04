@@ -1,12 +1,16 @@
 package com.alejandro_dev_links.bottomnavbar.presentation.mycomponents.bottombar.components
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentColor
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -19,7 +23,9 @@ fun RowScope.UserBottomBarItem(
     currentDestination: NavDestination?,
     navController: NavHostController
 ) {
-    BottomNavigationItem(label = { Text(text = screen.title) },
+    BottomNavigationItem(modifier = Modifier
+        .clip(RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp)),
+        label = { Text(text = screen.title) },
         icon = { Icon(imageVector = screen.icon, contentDescription = "icono") },
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
